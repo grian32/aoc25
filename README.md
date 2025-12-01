@@ -1,6 +1,6 @@
 # aoc25
 
-My Advent of Code 2025 Solutions. This time in Zig!
+My Advent of Code 2025 Solutions. This time in Rust!
 
 | Day         | Part One | Part Two |
 |-------------|----------|----------|
