@@ -1,6 +1,7 @@
 use std::fs;
 use crate::day::Day;
 
+#[allow(dead_code)]
 pub struct Day1 {}
 
 impl Day for Day1 {

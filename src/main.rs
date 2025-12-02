@@ -1,11 +1,12 @@
-use crate::day1::Day1;
+use crate::day2::Day2;
 use crate::day::Day;
 
 mod day;
 mod day1;
+mod day2;
 
 fn main() {
-    let day = Day1 {};
+    let day = Day2 {};
     day.part1();
     day.part2();
 }
