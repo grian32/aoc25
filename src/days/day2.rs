@@ -1,7 +1,8 @@
 use std::fs;
 use fancy_regex::Regex;
-use crate::day::Day;
+use crate::days::day::Day;
 
+#[allow(dead_code)]
 pub struct Day2 {
 
 }
