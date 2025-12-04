@@ -65,5 +65,5 @@ fn bench_day4(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, bench_day1, bench_day2, bench_day3, bench_day4);
+criterion_group!(benches, bench_day4);
 criterion_main!(benches);
