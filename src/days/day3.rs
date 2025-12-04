@@ -6,21 +6,28 @@ pub struct Day3 {
 
 }
 
-impl Day for Day3 {
-    fn get_input(&self) -> String {
-        fs::read_to_string("inputs/day3.txt").expect("read input")
+impl Day<Vec<Vec<i32>>, i64> for Day3 {
+    fn get_input(&self) -> Vec<Vec<i32>> {
+        let file = fs::read_to_string("inputs/day3.txt").expect("read input");
+        let mut vec: Vec<Vec<i32>> = Vec::new();
+        for line in file.lines() {
+            let numbers = line
+                    .chars()
+                    .map(|x| x.to_digit(10).unwrap() as i32)
+                    .collect();
+            vec.push(
+                numbers
+            );
+        }
+
+        vec
     }
 
-    fn part1(&self) {
-        let input = self.get_input();
+    fn part1(&self, input: &Vec<Vec<i32>>) -> i64 {
         let mut curr_max_joltage = 0;
 
-        for line in input.lines() {
-            let mut numbers: Vec<_> = line.
-                split("").
-                filter(|x| { !x.is_empty()}).
-                map(|x| { x.parse::<i32>().unwrap() }).
-                collect();
+        for line in input {
+            let mut numbers = line.to_vec();
 
             let mut max_idx= 0;
             let mut max = -1;
@@ -45,19 +52,15 @@ impl Day for Day3 {
                 curr_max_joltage += max * 10 + second_max;
             }
         }
-        println!("Day 3 Part 1: {}", curr_max_joltage);
+
+        curr_max_joltage as i64
     }
 
-    fn part2(&self) {
-        let input = self.get_input();
+    fn part2(&self, input: &Vec<Vec<i32>>) -> i64 {
         let mut curr_max_joltage = 0;
 
-        for line in input.lines() {
-            let mut numbers: Vec<_> = line.
-                split("").
-                filter(|x| { !x.is_empty() }).
-                map(|x| { x.parse::<i32>().unwrap() }).
-                collect();
+        for line in input {
+            let numbers: Vec<_> = line.to_vec();
             let num_len = numbers.len();
 
             let mut joltage_nums: Vec<i32> = vec![];
@@ -65,7 +68,7 @@ impl Day for Day3 {
 
             for i in numbers {
                 while joltage_nums.len() > 0 && joltage_nums[joltage_nums.len() - 1] < i {
-                    if (rem_count == 0) {
+                    if rem_count == 0 {
                         break;
                     }
                     joltage_nums.pop();
@@ -77,6 +80,6 @@ impl Day for Day3 {
             curr_max_joltage += joltage_nums[0..12].iter().map(|n| n.to_string()).collect::<Vec<String>>().join("").parse::<i64>().unwrap();
         }
 
-        println!("Day 3 Part 2: {}", curr_max_joltage);
+        curr_max_joltage
     }
 }
