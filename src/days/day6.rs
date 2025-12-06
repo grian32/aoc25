@@ -1,5 +1,4 @@
 use std::fs;
-use fancy_regex::Regex;
 use crate::days::day::Day;
 
 pub struct Day6 {
@@ -64,9 +63,9 @@ impl Day<Vec<MathProblem>, i64> for Day6 {
             let start = col_positions[col_positions.len() - 1];
             let mut cell = line[start..line.len()].to_string();
             // pad to deal with input
-            if (line.len() < max_num_line_len) {
+            if line.len() < max_num_line_len {
                 let to_pad = max_num_line_len - line.len();
-                for i in 0..to_pad {
+                for _ in 0..to_pad {
                     cell += " ";
                 }
             }

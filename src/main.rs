@@ -1,4 +1,3 @@
-use crate::days::day5::Day5;
 use crate::days::day6::Day6;
 use crate::days::day::Day;
 
