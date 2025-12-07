@@ -6,6 +6,7 @@ use aoc25::days::day3::Day3;
 use aoc25::days::day4::Day4;
 use aoc25::days::day5::Day5;
 use aoc25::days::day6::Day6;
+use aoc25::days::day7::Day7;
 
 fn bench_day1(c: &mut Criterion) {
     let day = Day1{};
@@ -96,5 +97,20 @@ fn bench_day6(c: &mut Criterion) {
         })
     });
 }
-criterion_group!(benches, bench_day6);
+
+fn bench_day7(c: &mut Criterion) {
+    let day = Day7{};
+    let input = day.get_input();
+    c.bench_function("day7 part1", |b| {
+        b.iter(|| {
+            day.part1(&input);
+        })
+    });
+    c.bench_function("day7 part2", |b| {
+        b.iter(|| {
+            day.part2(&input);
+        })
+    });
+}
+criterion_group!(benches, bench_day7);
 criterion_main!(benches);

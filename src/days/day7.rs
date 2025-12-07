@@ -24,6 +24,9 @@ impl Day<Vec<Vec<u8>>, i64> for Day7 {
             x += 1;
         }
 
+        let input_len = input.len();
+        let input_line_len = input[0].len();
+
         stack.push((x, y));
         while !stack.is_empty() {
             let curr_node = stack.pop().unwrap();
@@ -32,28 +35,28 @@ impl Day<Vec<Vec<u8>>, i64> for Day7 {
             }
             visited.insert(curr_node);
 
-            let mut left_search_pos = curr_node;
-            let mut right_search_pos = curr_node;
-            left_search_pos.1 = left_search_pos.1 - 1;
-            right_search_pos.1 = right_search_pos.1 + 1;
+            let left_search = curr_node.1 - 1;
+            let right_search = curr_node.1 + 1;
 
-            if left_search_pos.1 < input[0].len() {
-                while left_search_pos.0 < input.len() && input[left_search_pos.0][left_search_pos.1] != b'^' {
-                    left_search_pos.0 += 1;
+            if left_search < input_line_len {
+                let mut search = curr_node.0;
+                while search < input_len && input[search][left_search] != b'^' {
+                    search += 1;
                 }
 
-                if left_search_pos.0 < input.len() && left_search_pos.1 < input[0].len() && !visited.contains(&left_search_pos) {
-                    stack.push((left_search_pos.0, left_search_pos.1));
+                if search < input_len && !visited.contains(&(search, left_search)) {
+                    stack.push((search, left_search));
                 }
             }
 
-            if right_search_pos.1 < input[0].len() {
-                while right_search_pos.0 < input.len() && input[right_search_pos.0][right_search_pos.1] != b'^' {
-                    right_search_pos.0 += 1;
+            if right_search < input_line_len {
+                let mut search = curr_node.0;
+                while search < input_len && input[search][right_search] != b'^' {
+                    search += 1;
                 }
 
-                if right_search_pos.0 < input.len() && right_search_pos.1 < input[0].len() && !visited.contains(&right_search_pos){
-                    stack.push((right_search_pos.0, right_search_pos.1));
+                if search < input_len && !visited.contains(&(search, right_search)){
+                    stack.push((search, right_search));
                 }
             }
         }
