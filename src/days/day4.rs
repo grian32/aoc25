@@ -23,7 +23,7 @@ impl Day<Vec<Vec<u8>>, i32> for Day4 {
         file.lines().map(|x| x.as_bytes().to_vec()).collect()
     }
 
-    fn part1(&self, input: &Vec<Vec<u8>>) -> i32 {
+    fn part1(&self, input: &mut Vec<Vec<u8>>) -> i32 {
         let grid_len = input.len();
         let grid_line_len = input[0].len();
         let grid_len_i= input.len() as isize;
@@ -54,7 +54,7 @@ impl Day<Vec<Vec<u8>>, i32> for Day4 {
         valid_rolls
     }
 
-    fn part2(&self, input: &Vec<Vec<u8>>) -> i32 {
+    fn part2(&self, input: &mut Vec<Vec<u8>>) -> i32 {
         let mut grid = input.to_vec();
         let grid_len= grid.len();
         let grid_line_len= grid[0].len();

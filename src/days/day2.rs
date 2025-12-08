@@ -30,7 +30,7 @@ impl Day<Vec<NumRange>, i64> for Day2 {
         vec
     }
 
-    fn part1(&self, input: &Vec<NumRange>) -> i64 {
+    fn part1(&self, input: &mut Vec<NumRange>) -> i64 {
         let mut bad_number_sum: i64 = 0;
 
         for line in input {
@@ -46,7 +46,7 @@ impl Day<Vec<NumRange>, i64> for Day2 {
         bad_number_sum
     }
 
-    fn part2(&self, input: &Vec<NumRange>) -> i64 {
+    fn part2(&self, input: &mut Vec<NumRange>) -> i64 {
         let re = Regex::new(r"^(\d+)\1+$").unwrap();
 
         let mut bad_number_sum: i64 = 0;

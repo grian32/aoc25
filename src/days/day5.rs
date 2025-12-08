@@ -55,7 +55,7 @@ impl Day<Ingredients, i64> for Day5 {
         }
     }
 
-    fn part1(&self, input: &Ingredients) -> i64 {
+    fn part1(&self, input: &mut Ingredients) -> i64 {
         let mut good_ingredients: i32 = 0;
         let ranges = &input.ranges.to_vec();
         let available = input.available.to_owned();
@@ -75,7 +75,7 @@ impl Day<Ingredients, i64> for Day5 {
         good_ingredients as i64
     }
 
-    fn part2(&self, input: &Ingredients) -> i64 {
+    fn part2(&self, input: &mut Ingredients) -> i64 {
         let mut good_ingredients: i64 = 0;
         let ranges = &input.ranges.to_vec();
 

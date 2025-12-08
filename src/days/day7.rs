@@ -79,7 +79,7 @@ impl Day<Vec<Vec<u8>>, i64> for Day7 {
         file.lines().collect::<Vec<&str>>().iter().map(|x|x.bytes().collect::<Vec<u8>>()).collect()
     }
 
-    fn part1(&self, input: &Vec<Vec<u8>>) -> i64 {
+    fn part1(&self, input: &mut Vec<Vec<u8>>) -> i64 {
         let mut x = 0;
         let y = input[0].iter().position(|x| *x == b'S').unwrap();
 
@@ -130,7 +130,7 @@ impl Day<Vec<Vec<u8>>, i64> for Day7 {
         visited.len() as i64
     }
 
-    fn part2(&self, input: &Vec<Vec<u8>>) -> i64 {
+    fn part2(&self, input: &mut Vec<Vec<u8>>) -> i64 {
         let mut x = 0;
         let y = input[0].iter().position(|x| *x == b'S').unwrap();
 

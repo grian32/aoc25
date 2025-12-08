@@ -23,7 +23,7 @@ impl Day<Vec<Vec<i32>>, i64> for Day3 {
         vec
     }
 
-    fn part1(&self, input: &Vec<Vec<i32>>) -> i64 {
+    fn part1(&self, input: &mut Vec<Vec<i32>>) -> i64 {
         let mut curr_max_joltage = 0;
 
         for line in input {
@@ -56,7 +56,7 @@ impl Day<Vec<Vec<i32>>, i64> for Day3 {
         curr_max_joltage as i64
     }
 
-    fn part2(&self, input: &Vec<Vec<i32>>) -> i64 {
+    fn part2(&self, input: &mut Vec<Vec<i32>>) -> i64 {
         let mut curr_max_joltage = 0;
 
         for line in input {

@@ -104,7 +104,7 @@ impl Day<Vec<MathProblem>, i64> for Day6 {
         vec
     }
 
-    fn part1(&self, input: &Vec<MathProblem>) -> i64 {
+    fn part1(&self, input: &mut Vec<MathProblem>) -> i64 {
         let mut total: i64 = 0;
 
         for i in input {
@@ -129,7 +129,7 @@ impl Day<Vec<MathProblem>, i64> for Day6 {
         total
     }
 
-    fn part2(&self, input: &Vec<MathProblem>) -> i64 {
+    fn part2(&self, input: &mut Vec<MathProblem>) -> i64 {
         let mut total: i64 = 0;
 
         for i in input {

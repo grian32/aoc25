@@ -27,7 +27,7 @@ impl Day<Vec<DialTurn>, i32> for Day1 {
         vec
     }
 
-    fn part1(&self, input: &Vec<DialTurn>) -> i32 {
+    fn part1(&self, input: &mut Vec<DialTurn>) -> i32 {
         let mut dial_pos = 50;
         let mut sum = 0;
 
@@ -52,7 +52,7 @@ impl Day<Vec<DialTurn>, i32> for Day1 {
         sum
     }
 
-    fn part2(&self, input: &Vec<DialTurn>) -> i32{
+    fn part2(&self, input: &mut Vec<DialTurn>) -> i32 {
         let mut dial_pos: i32 = 50;
         let mut sum= 0;
 
