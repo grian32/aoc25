@@ -1,6 +1,5 @@
 use std::collections::HashSet;
 use std::fs;
-use std::hash::{DefaultHasher, Hash, Hasher};
 use crate::days::day::Day;
 
 pub struct Day7 {
